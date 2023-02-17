@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
+
 import { Outlet } from 'react-router-dom';
-import { CardStyled, ImgStyled } from './MovieCard.Styled';
+import { CardStyled, ImgStyled, ListStyled, TitleStyled, TextStyled, NavLinkStyled } from './MovieCard.Styled';
 
 export const Card = ({url, tag, title, score, overview, genres}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
@@ -10,24 +10,25 @@ return (
     <CardStyled>
         <ImgStyled src={baseImgUrl + url} alt={tag} />
         <>
-        <h2>{title}</h2>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h3>Genres</h3>
+        <TitleStyled>{title}</TitleStyled>
+        <TitleStyled>User Score {Math.round( score * 10)}%</TitleStyled>
+        <TitleStyled>Overview</TitleStyled>
+        <TextStyled>{overview}</TextStyled>
+        <TitleStyled>Genres</TitleStyled>
         <ul>
         {genres?.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+            <ListStyled key={id}>{name}</ListStyled>
         ))}
         </ul>
         </>
-            <h2>Additional information</h2>
+            <TitleStyled>Additional information</TitleStyled>
             <ul>
-                <li>
-                <NavLink to="cast"> Cast </NavLink>
-                </li>
-                <li>
-                <NavLink to="reviews"> Reviews </NavLink>
-                </li>
+                <ListStyled>
+                <NavLinkStyled to="cast"> Cast </NavLinkStyled>
+                </ListStyled>
+                <ListStyled>
+                <NavLinkStyled to="reviews"> Reviews </NavLinkStyled>
+                </ListStyled>
             </ul>
             <Outlet/>
     </CardStyled>
