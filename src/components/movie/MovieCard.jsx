@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { CardStyled, ImgStyled } from './MovieCard.Styled';
 
 export const Card = ({url, tag, title, score, overview, genres}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 
 return (
-    <div>
-        <img src={baseImgUrl + url} alt={tag} />
+    <CardStyled>
+        <ImgStyled src={baseImgUrl + url} alt={tag} />
         <>
         <h2>{title}</h2>
         <h3>Overview</h3>
@@ -29,6 +30,6 @@ return (
                 </li>
             </ul>
             <Outlet/>
-    </div>
+    </CardStyled>
 )
 }

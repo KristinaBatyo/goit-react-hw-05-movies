@@ -1,6 +1,6 @@
 
 
-export const CastItem = ({url, }) => {
+export const CastItem = ({url}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
     return (
