@@ -8,13 +8,13 @@ export const MovieDetailsPage = () => {
     const [movies, setMovies] = useState();
     const {id} = useParams();
 
-    console.log(id)
-
     useEffect(() => {
         const fetchMov = async() => {
             try{
                 const result = await fetchMovie(id);
                 setMovies(result)
+                console.log(fetchMovie(id))
+
             } catch ({responce})
             {console.log(responce)}
         }
@@ -33,13 +33,6 @@ export const MovieDetailsPage = () => {
                 />
         )}
         </>
-        // <div>
-        //     <h2>{movies?.title}</h2>
-        //     <img src={baseImgUrl + movies?.poster_path} alt="tgte" />
-            
-        // {/* <Outlet /> */}
-        // </div>
-        
     );
     
 }
