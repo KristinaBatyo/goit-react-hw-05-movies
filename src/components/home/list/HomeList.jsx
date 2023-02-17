@@ -3,7 +3,6 @@ import { HomeListStyled } from "./HomeList.styled"
 
 
 export const HomeList = ({items}) => {
-    console.log(items)
     const elements = items.map(({id, title}) => 
     <NavLink key={id} to={`/movies/${id}`} >
     <HomeListStyled>
