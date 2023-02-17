@@ -1,6 +1,11 @@
+import {Outlet} from "react-router-dom";
 
 
-export const Movie = () => {
-
+export const MoviePage = () => {
+    return(
+        <div>
+        <Outlet/>
+    </div>
+    )
     
 }

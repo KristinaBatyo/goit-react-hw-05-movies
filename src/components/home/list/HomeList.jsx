@@ -1,14 +1,15 @@
-import { Link,  } from "react-router-dom"
+import { NavLink,  } from "react-router-dom"
 import { HomeListStyled } from "./HomeList.styled"
 
 
 export const HomeList = ({items}) => {
+    console.log(items)
     const elements = items.map(({id, title}) => 
-    <Link key={id} to={`/movie/${id}`} >
+    <NavLink key={id} to={`/movies/${id}`} >
     <HomeListStyled>
-        <h2>{title}</h2>
+        <h4>{title}</h4>
     </HomeListStyled>
-    </Link>
+    </NavLink>
     
     )
     return (
