@@ -1,6 +1,7 @@
 
 import { Outlet } from 'react-router-dom';
 import { CardStyled, ImgStyled, ListStyled, TitleStyled, TextStyled, NavLinkStyled } from './MovieCard.Styled';
+import PropTypes from "prop-types";
 
 export const Card = ({url, tag, title, score, overview, genres}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
@@ -33,4 +34,14 @@ return (
             <Outlet/>
     </CardStyled>
 )
+}
+
+Card.propTypes = {
+    url: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.shape().isRequired)
+
 }

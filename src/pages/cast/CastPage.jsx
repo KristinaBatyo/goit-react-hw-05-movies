@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchCast } from "services/Api";
 import { useParams } from "react-router-dom";
-import { CastItem } from "components/cast/Cast";
+// import { CastItem } from "components/cast/Cast";
 
 
 
