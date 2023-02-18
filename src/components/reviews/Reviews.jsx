@@ -4,7 +4,7 @@ import { fetchReviews } from "services/Api";
 import { ReviewsStyled, ReviewsTextStyled, ReviewsListStyled } from "components/reviews/Reviews.styled";
 
 
-export const Reviews = () => {
+const Reviews = () => {
     const [reviews, setReviews] = useState();
     const {id} = useParams();
     // console.log(reviews)
@@ -34,3 +34,5 @@ export const Reviews = () => {
         </>
     )
 }
+
+export default Reviews;

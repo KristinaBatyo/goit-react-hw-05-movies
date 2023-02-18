@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
-import { SearchMovies } from "components/movies/MoviesSearch";
-import { MoviesList } from "components/movielist/MoviesList";
+import SearchMovies  from "components/movies/MoviesSearch";
+import MoviesList from "components/movielist/MoviesList";
 import { fetchSearchMovies } from "services/Api";
 import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -40,7 +40,7 @@ export const MoviePage = () => {
     return(
         <>
         <SearchMovies onSubmit={handleSubmit} />
-        {moviesName != null && <MoviesList movies={movies}/>}
+        {movies && <MoviesList movies={movies}/>}
         <Outlet/>
     </>
     )

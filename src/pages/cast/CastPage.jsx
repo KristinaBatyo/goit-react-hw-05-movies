@@ -1,5 +1,5 @@
 
-import { Cast } from "components/cast/Cast"
+import Cast from "components/cast/Cast"
 
 
 export const CastPage = () => {

@@ -4,7 +4,7 @@ import {toast} from "react-toastify";
 import PropTypes from "prop-types";
 
 
-export const SearchMovies = ({ onSubmit}) => {
+const SearchMovies = ({ onSubmit}) => {
     const [query, setQuery] = useState('');
 
     const handleChange = e => {
@@ -35,6 +35,7 @@ export const SearchMovies = ({ onSubmit}) => {
         </>
     )
 }
+export default SearchMovies;
 
 SearchMovies.propTypes = {
     onSubmit: PropTypes.func.isRequired,

@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchMovie } from "services/Api";
-import { Card } from "components/card/MovieCard";
+import  Card  from "components/card/MovieCard";
 
 
 

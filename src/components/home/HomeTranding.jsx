@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { fetchTrendingMovies } from "services/Api";
-import { HomeList } from "../list/HomeList";
+import  HomeList  from "../list/HomeList";
 
-export const Tranding = () => {
+const Tranding = () => {
     const [items, setItems] = useState([]);
 
 
@@ -19,3 +19,5 @@ export const Tranding = () => {
     },[]);
     return <HomeList items={items}/>
 } 
+
+export default Tranding;

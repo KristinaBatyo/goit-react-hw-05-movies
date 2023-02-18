@@ -1,4 +1,4 @@
-import { Reviews } from "components/reviews/Reviews"
+import Reviews from "components/reviews/Reviews"
 
 export const ReviewsPage = () => {
 

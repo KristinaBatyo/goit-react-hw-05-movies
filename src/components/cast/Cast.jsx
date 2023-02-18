@@ -6,7 +6,7 @@ import { CastContainer, CastItem, CastImage } from "components/cast/Cast.styled"
 
 
 
-export const Cast = () => {
+ const Cast = () => {
     const [cast, setCast] = useState();
     const {id} = useParams();
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
@@ -37,3 +37,5 @@ export const Cast = () => {
     )
     
 }
+
+export default Cast;

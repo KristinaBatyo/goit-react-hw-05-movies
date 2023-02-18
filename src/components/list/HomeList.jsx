@@ -2,7 +2,7 @@
 import { HomeListStyled, NavStyle } from "./HomeList.styled"
 import PropTypes from "prop-types";
 
-export const HomeList = ({items}) => {
+const HomeList = ({items}) => {
     const elements = items.map(({id, title}) => 
     <NavStyle key={id} to={`/movies/${id}`} >
     <HomeListStyled>
@@ -17,6 +17,7 @@ export const HomeList = ({items}) => {
     )
     
 }
+export default HomeList;
 
 HomeList.propTypes = {
     items: PropTypes.arrayOf(

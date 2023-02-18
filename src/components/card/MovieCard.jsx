@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { CardStyled, ImgStyled, ListStyled, TitleStyled, TextStyled, NavLinkStyled } from './MovieCard.Styled';
 import PropTypes from "prop-types";
 
-export const Card = ({url, tag, title, score, overview, genres}) => {
+const Card = ({url, tag, title, score, overview, genres}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 return (
@@ -35,6 +35,8 @@ return (
     </CardStyled>
 )
 };
+
+export default Card;
 
 Card.propTypes = {
     url: PropTypes.string.isRequired,
