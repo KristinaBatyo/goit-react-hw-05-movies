@@ -7,8 +7,6 @@ import { ReviewsStyled, ReviewsTextStyled, ReviewsListStyled } from "components/
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const {id} = useParams();
-    // console.log(reviews)
-
     useEffect (() => {
         const fetchReviewsPage = async () => {
             try {
@@ -20,7 +18,6 @@ const Reviews = () => {
         }
         fetchReviewsPage();
     }, [id])
-    // console.log(reviews)
     return (
         
         <>
