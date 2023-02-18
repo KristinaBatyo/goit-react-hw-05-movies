@@ -1,9 +1,10 @@
 import {Outlet} from "react-router-dom";
-import { SearchMovies } from "components/movies/MoviesSearh";
-import { MoviesList } from "components/movies/MoviesList";
+import { SearchMovies } from "components/movies/MoviesSearch";
+import { MoviesList } from "components/movielist/MoviesList";
 import { fetchSearchMovies } from "services/Api";
 import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
 
 
 
@@ -11,6 +12,7 @@ export const MoviePage = () => {
     const [movies, setMovies] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
     const moviesName = searchParams.get("moviesName");
+    const [error, setError] = useState(null)
 
     useEffect (() => {
         if (!moviesName) {
@@ -21,36 +23,24 @@ export const MoviePage = () => {
             try {
                 const result = await fetchSearchMovies(moviesName);
                 setMovies(result)
-    console.log(result);
-
-            } catch ({error}) {
-                console.log(error);
+            } catch (error) {
+                setError(toast('Something went wrong!'))
             }
         }
         fetchMovie()
-    }, [moviesName])
-
-    const handleChange = e => {
-        setSearchParams({moviesName: e.currentTarget.value.toLowerCase()});
-    console.log({moviesName: e.currentTarget.value});
-
-    }
+    }, [error, moviesName])
 
     const handleSubmit = e => {
-        e.preventDefault();
-
-        if (moviesName === '') {
-            console.log('Enter the name of the picture!');
-            return;
-        }
-        setSearchParams({movies});
+        if (e === movies) {
+            return 
+        } 
+        setSearchParams({moviesName: e});
     };
-
 
     return(
         <>
-        <SearchMovies onSubmit={handleSubmit} value={moviesName} onChange={handleChange}/>
-        <MoviesList movies={movies}/>
+        <SearchMovies onSubmit={handleSubmit} />
+        {moviesName != null && <MoviesList movies={movies}/>}
         <Outlet/>
     </>
     )

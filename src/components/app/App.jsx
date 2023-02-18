@@ -6,11 +6,15 @@ import { CastPage } from "pages/cast/CastPage";
 import { ReviewsPage } from "pages/reviews/ReviewsPage";
 import { SharedLayout } from "components/layout/SharedLayout";
 import React from 'react';
+import { ToastContainer} from 'react-toastify' ;   
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
   export const App = () => {
     return (
-
+    <>
+    < ToastContainer /> 
     <Routes>
     <Route path="/" element={<SharedLayout />}>
       <Route index element={<HomePage/>}/>
@@ -21,5 +25,6 @@ import React from 'react';
         </Route>
         </Route>
     </Routes>
+    </>
     );
   };

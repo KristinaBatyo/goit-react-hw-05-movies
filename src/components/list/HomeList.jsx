@@ -19,5 +19,12 @@ export const HomeList = ({items}) => {
 }
 
 HomeList.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired
+        }).isRequired
+        ).isRequired,
+    
 }
+
