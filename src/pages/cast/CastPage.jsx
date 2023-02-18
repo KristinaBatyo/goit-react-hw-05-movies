@@ -16,9 +16,8 @@ export const CastPage = () => {
             try {
                 const result = await fetchCast(id);
                 setCast(result)
-                console.log(fetchCast(id))
-            } catch (responce) {
-                console.log(responce);
+            } catch ({responce}) {
+                console.log(responce.data.message);
             }
         }
         fetchCastPage();

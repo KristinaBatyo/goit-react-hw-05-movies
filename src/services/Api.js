@@ -17,6 +17,10 @@ export const fetchMovie = async (id) => {
 
 export const fetchCast = async (id) => {
     const resp = await axios.get(`movie/${id}/credits?api_key=${apiKey}&language=en-US`);
-    // console.log(resp.data.cast)
+    return resp.data;
+}
+
+export const fetchReviews = async (id) => {
+    const resp = await axios.get(`movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`);
     return resp.data;
 }

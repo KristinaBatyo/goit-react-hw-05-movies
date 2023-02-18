@@ -3,7 +3,7 @@ import { HomePage } from "pages/home/HomePage";
 import { MoviePage } from "pages/movies/MoviesPage";
 import { MovieDetailsPage } from "pages/details/MovieDetailsPage";
 import { CastPage } from "pages/cast/CastPage";
-import { Reviews } from "pages/reviews/ReviewsPage";
+import { ReviewsPage } from "pages/reviews/ReviewsPage";
 import { SharedLayout } from "components/layout/SharedLayout";
 import React from 'react';
 
@@ -17,7 +17,7 @@ import React from 'react';
       <Route path="movies" element={<MoviePage/>}/>
         <Route path="movies/:id" element={<MovieDetailsPage />} >
           <Route path="cast" element={<CastPage/>} />
-          <Route path="reviews" element={<Reviews/>} />
+          <Route path="reviews" element={<ReviewsPage/>} />
         </Route>
         </Route>
     </Routes>

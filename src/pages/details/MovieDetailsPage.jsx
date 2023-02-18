@@ -13,10 +13,8 @@ export const MovieDetailsPage = () => {
             try{
                 const result = await fetchMovie(id);
                 setMovies(result)
-                console.log(fetchMovie(id))
-
             } catch ({responce})
-            {console.log(responce)}
+            {console.log(responce.data.message)}
         }
         fetchMov()
     }, [id])
