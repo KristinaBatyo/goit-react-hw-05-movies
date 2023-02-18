@@ -5,7 +5,7 @@ import { ReviewsStyled, ReviewsTextStyled, ReviewsListStyled } from "components/
 
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState();
+    const [reviews, setReviews] = useState([]);
     const {id} = useParams();
     // console.log(reviews)
 
@@ -20,9 +20,11 @@ const Reviews = () => {
         }
         fetchReviewsPage();
     }, [id])
+    // console.log(reviews)
     return (
         
         <>
+            {reviews.results && !!reviews.results.length ? (
         <ul>
             {reviews?.results.map(({author, content, id}) => (
                 <ReviewsListStyled key={id}>
@@ -31,6 +33,9 @@ const Reviews = () => {
                 </ReviewsListStyled>
             ))}
         </ul>
+        ) : (
+            <div>We don't have any reviews for this movie</div>
+        )}
         </>
     )
 }
