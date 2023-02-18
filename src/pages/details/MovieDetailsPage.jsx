@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchMovie } from "services/Api";
-import { Card } from "components/movie/MovieCard";
+import { Card } from "components/card/MovieCard";
 
 
 export const MovieDetailsPage = () => {
