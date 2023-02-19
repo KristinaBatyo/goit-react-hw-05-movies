@@ -1,6 +1,7 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchMovie } from "services/Api";
+import { useRef } from 'react';
 import  Card  from "components/card/MovieCard";
 
 
@@ -9,6 +10,11 @@ export const MovieDetailsPage = () => {
     const [movies, setMovies] = useState();
     const {id} = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location)
+    const from = useRef(location.state?.from ?? '/movies');
+
+    // console.log(from)
 
     useEffect(() => {
         const fetchMov = async() => {
@@ -22,7 +28,7 @@ export const MovieDetailsPage = () => {
     }, [id])
     return (
         <>
-            <button onClick={()=> navigate(-1)}>Go back</button>
+            <button onClick={()=> navigate(from.current)}>Go back</button>
         {movies && (
                     <Card
                     url={movies?.poster_path}
@@ -31,8 +37,10 @@ export const MovieDetailsPage = () => {
                     score={movies?.vote_average}
                     overview={movies?.overview}
                     genres={movies?.genres}
+                    from={from}
                 />
         )}
+        <Outlet/>
         </>
     );
     

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { CardStyled, ImgStyled, ListStyled, TitleStyled, TextStyled, NavLinkStyled } from './MovieCard.Styled';
 import PropTypes from "prop-types";
 
-const Card = ({url, tag, title, score, overview, genres}) => {
+const Card = ({url, tag, title, score, overview, genres, from}) => {
     const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 return (
@@ -25,10 +25,10 @@ return (
             <TitleStyled>Additional information</TitleStyled>
             <ul>
                 <ListStyled>
-                <NavLinkStyled to="cast"> Cast </NavLinkStyled>
+                <NavLinkStyled to="cast" state={from}> Cast </NavLinkStyled>
                 </ListStyled>
                 <ListStyled>
-                <NavLinkStyled to="reviews"> Reviews </NavLinkStyled>
+                <NavLinkStyled to="reviews" state={from}> Reviews </NavLinkStyled>
                 </ListStyled>
             </ul>
             <Outlet/>

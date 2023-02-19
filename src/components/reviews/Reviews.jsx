@@ -18,6 +18,7 @@ const Reviews = () => {
         }
         fetchReviewsPage();
     }, [id])
+    
     return (
         
         <>

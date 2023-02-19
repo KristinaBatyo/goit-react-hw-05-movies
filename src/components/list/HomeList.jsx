@@ -1,10 +1,11 @@
-
+import { useLocation } from 'react-router-dom';
 import { HomeListStyled, NavStyle } from "./HomeList.styled"
 import PropTypes from "prop-types";
 
 const HomeList = ({items}) => {
+    const location = useLocation();
     const elements = items.map(({id, title}) => 
-    <NavStyle key={id} to={`/movies/${id}`} >
+    <NavStyle key={id} to={`/movies/${id}`} state={{ from: location }} >
     <HomeListStyled>
         <h4>{title}</h4>
     </HomeListStyled>
