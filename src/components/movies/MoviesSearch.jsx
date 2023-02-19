@@ -1,42 +1,33 @@
-import { SearchStyled } from "./MoviesSearch.styled"
+import { SearchStyled } from './MoviesSearch.styled';
 import { useState } from 'react';
-import {toast} from "react-toastify";
-import PropTypes from "prop-types";
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
+const SearchMovies = ({ onSubmit }) => {
+  const [query, setQuery] = useState('');
 
-const SearchMovies = ({ onSubmit}) => {
-    const [query, setQuery] = useState('');
-
-    const handleChange = e => {
-        setQuery(e.currentTarget.value.toLowerCase());
+  const handleChange = e => {
+    setQuery(e.currentTarget.value.toLowerCase());
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (query.trim() === '') {
+      toast('Enter the name of the picture!');
+      return;
     }
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (query.trim() === '') {
-            toast('Enter the name of the picture!');
-            return;
-        }
-        onSubmit(query);
-
-    }
-    return (
-        <>
-        <SearchStyled onSubmit={handleSubmit}>
-        <input 
-        name="name"
-        type="text"
-        value={query}
-        onChange={handleChange}
-        />
+    onSubmit(query);
+  };
+  return (
+    <>
+      <SearchStyled onSubmit={handleSubmit}>
+        <input name="name" type="text" value={query} onChange={handleChange} />
         <button type="submit">Search</button>
-
-        </SearchStyled>
-
-        </>
-    )
-}
+      </SearchStyled>
+    </>
+  );
+};
 export default SearchMovies;
 
 SearchMovies.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-}
+  onSubmit: PropTypes.func.isRequired,
+};
